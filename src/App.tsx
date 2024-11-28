@@ -14,6 +14,7 @@ const StudentRegistrationsPage = React.lazy(() =>
 const CombineCoursesTypesPage = React.lazy(() =>
   import("./pages/combine-courses-types-page")
 );
+import NotFound from "./pages/NotFound"
 
 function App() {
   // Reset localStorage
@@ -33,17 +34,18 @@ function App() {
       {/* Suspense wraps routes to show a fallback while loading */}
       <Suspense fallback={<div className="text-center p-4">Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/courses" element={<CoursesPage />} />
-          <Route path="/courses-types" element={<CoursesTypePage />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/courses" element={<CoursesPage/>} />
+          <Route path="/courses-types" element={<CoursesTypePage/>} />
           <Route
             path="/student-registrations"
-            element={<StudentRegistrationsPage />}
+            element={<StudentRegistrationsPage/>}
           />
           <Route
             path="/combine-courses-and-types"
-            element={<CombineCoursesTypesPage />}
+            element={<CombineCoursesTypesPage/>}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       <Footer />

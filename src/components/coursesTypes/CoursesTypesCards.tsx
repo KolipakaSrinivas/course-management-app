@@ -39,10 +39,11 @@ const CoursesTypesCards: React.FC<ChildProps> = ({
     }
   };
 
-  const trackDescription = courseType.description
-    .split(" ")
-    .slice(0, 12)
-    .join(" ");
+  const trackDescription: string = (courseType?.description || "")
+  .split(" ")
+  .slice(0, 12)
+  .join(" ");
+
 
   return (
     <div className="max-w-[21rem] p-5 bg-slate-400 border  border-gray-200 rounded-lg shadow dark:bg-black dark:border-gray-700 flex flex-col justify-between">
